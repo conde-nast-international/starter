@@ -8,4 +8,4 @@ all:
 	rm -rf temp.zip starter-master Makefile
 	rm src/assets/.gitkeep
 	mv Makefile.story Makefile
-	npm i
+	yarn install --flat
