@@ -1,12 +1,12 @@
 {
-  "title": "title tk",
-  "description": "description tk",
-  "url": "tk",
-  "keywords": "tk",
+  "title": "Vogue International",
+  "description": "Vogue International encompasses all the Vogue titles published by Conde Nast International",
+  "url": "http://vogue.international",
+  "keywords": "Vogue, Vogue Paris, Vogue Italia, British Vogue, Vogue Germany, Vogue Japan, Vogue India",
   "img": "tk",
   "author": {
-    "name": "Author Name",
-    "url": "https://twitter.com/puddingviz",
-    "twitterHandle": "@puddingviz"
+    "name": "CNI",
+    "url": "http://condenastinternational.com",
+    "twitterHandle": "@cni"
   }
 }
