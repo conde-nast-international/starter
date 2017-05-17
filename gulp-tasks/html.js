@@ -75,3 +75,18 @@ gulp.task('html-style-guide', () => {
 		.pipe(rename('index.html'))
 		.pipe(gulp.dest('docs'))
 })
+
+gulp.task('html-index-page', () => {
+	const hbStream = hb()
+		.partials('./src/html/partials/**/*.hbs')
+		// .helpers('./src/html/helpers/*.js')
+		.data('./template-data/**/*.{js,json}')
+		.data({ timestamp: Date.now() })
+
+	return gulp.src('./src/html/index-page.hbs')
+		.pipe(plumber({ errorHandler: report }))
+		.pipe(hbStream)
+		.pipe(include({ basepath: svgPath }))
+		.pipe(rename('index.html'))
+		.pipe(gulp.dest('index-page'))
+})

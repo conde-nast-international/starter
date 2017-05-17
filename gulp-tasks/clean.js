@@ -13,6 +13,10 @@ gulp.task('clean-boilerplate', (cb) => {
 	del(['boilerplate/**/!(*.js)']).then(() => cb())
 })
 
-gulp.task('clean-style-guide', (cb) => {
-	del(['style-guide/**/!(*.js)']).then(() => cb())
+gulp.task('clean-index-page', (cb) => {
+	del(['index-page/**/!(*.js)']).then(() => cb())
+})
+
+gulp.task('clean-index-page', (cb) => {
+	del(['index-page/**/!(*.js)']).then(() => cb())
 })

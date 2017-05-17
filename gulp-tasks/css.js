@@ -76,3 +76,15 @@ gulp.task('css-style-guide', () => {
 		.pipe(rename('bundle.css'))
 		.pipe(gulp.dest('docs'))
 })
+
+// compile styl to css and autoprefix
+gulp.task('css-index-page', () => {
+	gulp.src('src/css/index-page.styl')
+		.pipe(stylus())
+		.pipe(autoprefixer({
+			browsers: ['last 4 versions'],
+		}))
+		.pipe(combineMq())
+		.pipe(rename('bundle.css'))
+		.pipe(gulp.dest('index'))
+})
