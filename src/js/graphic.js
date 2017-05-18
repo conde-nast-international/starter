@@ -1,4 +1,6 @@
 import * as d3 from 'd3'
+import $ from 'jquery'
+
 
 function scrollstory() {
   // select elements using jQuery since it is a dependency

@@ -61,12 +61,4 @@ gulp.task('js-style-guide', (cb) => {
 		.then(() => cb())
 		.catch(err => console.log(err))
 })
-gulp.task('js-index-page', (cb) => {
-	const fuse = fsbx.FuseBox.init(configDist)
-	const bundles = {
-		'index-page/critical.js': '> critical.js',
-	}
-	fuse.bundle(bundles)
-		.then(() => cb())
-		.catch(err => console.log(err))
-})
+

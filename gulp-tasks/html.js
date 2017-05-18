@@ -7,7 +7,8 @@ const replace = require('gulp-replace')
 const report = require('../report-error.js')
 const browserSync = require('browser-sync')
 
-const srcIndex = 'src/html/index.hbs'
+const srcIndex = 'src/html/index-page.hbs'
+const srcArticle = 'src/html/article.hbs'
 const svgPath = `${process.cwd()}/svg/`
 
 gulp.task('html-dev', () => {
@@ -15,13 +16,13 @@ gulp.task('html-dev', () => {
 		.partials('./src/html/partials/**/*.hbs')
 		// .helpers('./src/html/helpers/*.js')
 		.data('./template-data/**/*.{js,json}')
-		.data({ timestamp: Date.now() })
+		.data({ timestamp: Date.now() });
 
-	return gulp.src(srcIndex)
+	return gulp.src('src/html/*.hbs')
 		.pipe(plumber({ errorHandler: report }))
 		.pipe(hbStream)
 		.pipe(include({ basepath: svgPath }))
-		.pipe(rename('index.html'))
+    .pipe(rename({extname: '.html'}))
 		.pipe(gulp.dest('dev'))
 		.pipe(browserSync.reload({ stream: true }))
 })
@@ -76,17 +77,3 @@ gulp.task('html-style-guide', () => {
 		.pipe(gulp.dest('docs'))
 })
 
-gulp.task('html-index-page', () => {
-	const hbStream = hb()
-		.partials('./src/html/partials/**/*.hbs')
-		// .helpers('./src/html/helpers/*.js')
-		.data('./template-data/**/*.{js,json}')
-		.data({ timestamp: Date.now() })
-
-	return gulp.src('./src/html/index-page.hbs')
-		.pipe(plumber({ errorHandler: report }))
-		.pipe(hbStream)
-		.pipe(include({ basepath: svgPath }))
-		.pipe(rename('index.html'))
-		.pipe(gulp.dest('index-page'))
-})
